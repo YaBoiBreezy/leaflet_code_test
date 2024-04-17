@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map Example</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body, html {
+    margin: 0;
+    padding: 0;
+    }
+    #mapid { height: 400px; width: 800px;}
+    .tool {
+      display: inline-block;
+      padding: 10px;
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+    }
+    .tool img {
+      width: 25px;
+      height: 25px;
+    }
+    .search-input {
+      width: 200px;
+      padding: 5px;
+      margin-left: 20px;
+    }
+    .search-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1;
+    }
+    .search-dropdown-item {
+      padding: 5px;
+      cursor: pointer;
+    }
+    .search-dropdown-item:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: #4CAF50; color: white; padding-top: 20px; padding-bottom: 20px; width: 100%; margin-bottom: 20px;"></div>
+  <div id="mapid"></div>
+  <div>
+    <div class="tool" id="pointTool" title="Marker (Shortcut: M)">
+      <img class="tool" src="source/point.png" alt="Point">
+    </div>
+    <div class="tool" id="lineTool" title="Line (Shortcut: L)&#10;Enter to finish, esc to cancel">
+      <img class="tool" src="source/line.png" alt="Line">
+    </div>
+    <div class="tool" id="areaTool" title="Area (Shortcut: A)&#10;Enter to finish, esc to cancel">
+      <img class="tool" src="source/area.png" alt="Area">
+    </div>
+    <div class="tool" id="commentTool" title="Comment (Shortcut: C)">
+      <img class="tool" src="source/comment.png" alt="Comment">
+    </div>
+    <div class="tool" id="trashTool" title="Trash (Shortcut: T)">
+      <img class="tool" src="source/trash.png" alt="Trash">
+    </div>
+    <span>CHECK THE TOOLTIPS FOR TIPS</span>
+  </div>
+
+  <div id="search">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+    <div class="search-dropdown" id="searchResults"></div>
+  <div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-editable/1.1.0/Leaflet.Editable.min.js"></script>
+  <script src="controller.js"></script>
+</body>
+</html>
+
